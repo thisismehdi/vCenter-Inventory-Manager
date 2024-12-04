@@ -1,0 +1,68 @@
+{
+  "roles": [
+    {
+      "id": 1,
+      "name": "Domain Controller",
+      "Ste": "SAH",
+      "fqdn": "ST-9001.saham.local",
+      "userID": "SAH.SAH_MAINTENANCE",
+      "lastName": "SAH_MAINTENANCE",
+      "statut": "Delivery",
+      "vcpu": 10,
+      "consumedMemory": 9,
+      "assignedMemory": 8,
+      "assignedStorage": 230,
+      "storageConsumed": 190,
+      "operationSystem": "Ms Win 2016 Standard",
+      "sqlLicence": "-"
+    },
+    {
+      "id": 2,
+      "name": "Serveur DB et App SAGE L100",
+      "Ste": "SAH",
+      "fqdn": "ST-9001.saham.local",
+      "userID": "SAH.SAH_MAINTENANCE",
+      "lastName": "SAH_MAINTENANCE",
+      "statut": "Delivery1",
+      "vcpu": 6,
+      "consumedMemory": 9,
+      "assignedMemory": 8,
+      "assignedStorage": 230,
+      "storageConsumed": 190,
+      "operationSystem": "Ms Win 2016 Standard",
+      "sqlLicence": "-"
+    },
+    {
+      "id": 3,
+      "name": "RDS Services Server",
+      "Ste": "SAH",
+      "fqdn": "ST-9001.saham.local",
+      "userID": "SAH.SAH_MAINTENANCE",
+      "lastName": "SAH_MAINTENANCE",
+      "statut": "Delivery2",
+      "vcpu": 3,
+      "consumedMemory": 9,
+      "assignedMemory": 8,
+      "assignedStorage": 230,
+      "storageConsumed": 190,
+      "operationSystem": "Ms Win 2016 Standard",
+      "sqlLicence": "-"
+    },
+    {
+      "id": 4,
+      "name": "Application & DB server",
+      "Ste": "SAH",
+      "fqdn": "ST-9001.saham.local",
+      "userID": "SAH.SAH_MAINTENANCE",
+      "lastName": "SAH_MAINTENANCE",
+      "statut": "Delivery3",
+      "vcpu": 2,
+      "consumedMemory": 9,
+      "assignedMemory": 8,
+      "assignedStorage": 230,
+      "storageConsumed": 190,
+      "operationSystem": "Ms Win 2016 Standard",
+      "sqlLicence": "-"
+    }
+  ]
+}

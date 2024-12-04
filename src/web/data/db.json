@@ -1,0 +1,68 @@
+{
+  "roles": [
+    {
+      "id": 1,
+      "name": "name11",
+      "Ste": "SteTest1",
+      "fqdn": "fqdnTest1",
+      "userID": "userIDTest1",
+      "lastName": "lastNameTest1",
+      "statut": "statutTest1",
+      "vcpu": 10,
+      "consumedMemory": 2,
+      "assignedMemory": 3,
+      "assignedStorage": 4,
+      "storageConsumed": 5,
+      "operationSystem": "operationSysTest1",
+      "sqlLicence": "sqlLicenceTest1"
+    },
+    {
+      "id": 2,
+      "name": "name12",
+      "Ste": "SteTest2",
+      "fqdn": "fqdnTest2",
+      "userID": "userIDTest2",
+      "lastName": "lastNameTest2",
+      "statut": "statutTest2",
+      "vcpu": 6,
+      "consumedMemory": 5,
+      "assignedMemory": 4,
+      "assignedStorage": 3,
+      "storageConsumed": 2,
+      "operationSystem": "operationSysTest2",
+      "sqlLicence": "sqlLicenceTest2"
+    },
+    {
+      "id": 3,
+      "name": "name13",
+      "Ste": "SteTest3",
+      "fqdn": "fqdnTest3",
+      "userID": "userIDTest3",
+      "lastName": "lastNameTest3",
+      "statut": "statutTest3",
+      "vcpu": 3,
+      "consumedMemory": 5,
+      "assignedMemory": 6,
+      "assignedStorage": 7,
+      "storageConsumed": 8,
+      "operationSystem": "operationSysTest3",
+      "sqlLicence": "sqlLicenceTest3"
+    },
+    {
+      "id": 4,
+      "name": "name14",
+      "Ste": "SteTest4",
+      "fqdn": "fqdnTest4",
+      "userID": "userIDTest4",
+      "lastName": "lastNameTest4",
+      "statut": "statutTest4",
+      "vcpu": 2,
+      "consumedMemory": 9,
+      "assignedMemory": 8,
+      "assignedStorage": 1,
+      "storageConsumed": 6,
+      "operationSystem": "operationSysTest4",
+      "sqlLicence": "sqlLicenceTest4"
+    }
+  ]
+}

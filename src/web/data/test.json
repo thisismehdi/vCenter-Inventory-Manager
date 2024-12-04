@@ -1,0 +1,133 @@
+{
+  "value": {
+    "cdroms": [
+      {
+        "value": {
+          "start_connected": false,
+          "backing": {
+            "device_access_type": "PASSTHRU",
+            "type": "CLIENT_DEVICE"
+          },
+          "allow_guest_control": true,
+          "label": "CD/DVD drive 1",
+          "state": "NOT_CONNECTED",
+          "type": "SATA",
+          "sata": {
+            "bus": 0,
+            "unit": 0
+          }
+        },
+        "key": "16000"
+      }
+    ],
+    "memory": {
+      "size_MiB": 8004,
+      "hot_add_enabled": false
+    },
+    "disks": [
+      {
+        "value": {
+          "scsi": {
+            "bus": 0,
+            "unit": 0
+          },
+          "backing": {
+            "vmdk_file": "[NETAPP_NFS_DEV_ILEM_01 (1)] SRVRHWEB/SRVRHWEB.holding.saham.local.vmdk",
+            "type": "VMDK_FILE"
+          },
+          "label": "Hard disk 1",
+          "type": "SCSI",
+          "capacity": 64424509440
+        },
+        "key": "2000"
+      }
+    ],
+    "parallel_ports": [],
+    "sata_adapters": [
+      {
+        "value": {
+          "bus": 0,
+          "pci_slot_number": 34,
+          "label": "SATA controller 0",
+          "type": "AHCI"
+        },
+        "key": "15000"
+      }
+    ],
+    "cpu": {
+      "hot_remove_enabled": false,
+      "count": 2,
+      "hot_add_enabled": false,
+      "cores_per_socket": 2
+    },
+    "scsi_adapters": [
+      {
+        "value": {
+          "scsi": {
+            "bus": 0,
+            "unit": 7
+          },
+          "pci_slot_number": 160,
+          "label": "SCSI controller 0",
+          "type": "LSILOGICSAS",
+          "sharing": "NONE"
+        },
+        "key": "1000"
+      }
+    ],
+    "power_state": "POWERED_ON",
+    "floppies": [
+      {
+        "value": {
+          "start_connected": true,
+          "backing": {
+            "auto_detect": false,
+            "type": "HOST_DEVICE",
+            "host_device": "/dev/fd0"
+          },
+          "allow_guest_control": true,
+          "label": "Floppy drive 1",
+          "state": "NOT_CONNECTED"
+        },
+        "key": "8000"
+      }
+    ],
+    "name": "SRVRHWEB.holding.saham.local",
+    "nics": [
+      {
+        "value": {
+          "start_connected": true,
+          "pci_slot_number": 192,
+          "backing": {
+            "network_name": "VM SAHAM",
+            "type": "STANDARD_PORTGROUP",
+            "network": "network-1247"
+          },
+          "mac_address": "00:50:56:8d:13:01",
+          "mac_type": "ASSIGNED",
+          "allow_guest_control": true,
+          "wake_on_lan_enabled": true,
+          "label": "Network adapter 1",
+          "state": "CONNECTED",
+          "type": "E1000E"
+        },
+        "key": "4000"
+      }
+    ],
+    "boot": {
+      "delay": 0,
+      "retry_delay": 10000,
+      "enter_setup_mode": false,
+      "type": "BIOS",
+      "retry": false
+    },
+    "serial_ports": [],
+    "guest_OS": "WINDOWS_8_SERVER_64",
+    "boot_devices": [],
+    "hardware": {
+      "upgrade_policy": "NEVER",
+      "upgrade_status": "NONE",
+      "version": "VMX_11"
+    }
+  }
+}

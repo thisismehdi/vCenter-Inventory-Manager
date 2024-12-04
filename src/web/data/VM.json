@@ -1,0 +1,28 @@
+{
+  "VMs": [
+    {
+      "id": "1",
+      "name": "VM1",
+      "CLientId": "",
+      "selected": true
+    },
+    {
+      "id": "2",
+      "name": "VM2",
+      "CLientId": "",
+      "selected": true
+    },
+    {
+      "id": "3",
+      "name": "VM3",
+      "CLientId": "",
+      "selected": true
+    },
+    {
+      "id": "4",
+      "name": "VM4",
+      "CLientId": "",
+      "selected": true
+    }
+  ]
+}

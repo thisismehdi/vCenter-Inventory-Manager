@@ -1,0 +1,89 @@
+{
+  "clientsConf": [
+     {
+       "id": "1",
+       "client": "Saham",
+       "ste": "SAH1",
+       "userId": "user123",
+       "lastName": "Smith",
+       "referenceClient": "Smith",
+       "delivery": "Delivery",
+       "email": "user123@example.com",
+       "facturable" : false,
+       "selected" : false
+     },
+     {
+       "id": "2",
+       "client": "Saham2",
+       "ste": "SAH2",
+       "userId": "user123",
+       "lastName": "Smith",
+       "referenceClient": "Smith",
+       "delivery": "Delivery2",
+       "email": "user123@example.com",
+       "facturable" : false,
+       "selected" : false
+     },
+     {
+       "id": "3",
+       "client": "Saham3",
+       "ste": "SAH3",
+       "userId": "user123",
+       "lastName": "Smith",
+       "referenceClient": "Johnson",
+       "delivery": "Delivery3",
+       "email": "user332@example.com",
+       "facturable" : false,
+       "selected" : false
+     },
+     {
+       "id": "4",
+       "client": "Saham4",
+       "ste": "SAH4",
+       "userId": "user123",
+       "lastName": "Smith",
+       "referenceClient": "Williams",
+       "delivery": "Delivery4",
+       "email": "user789@example.com",
+       "facturable" : false,
+       "selected" : true
+     },
+
+    {
+      "id": "5",
+      "client": "Saham5",
+      "ste": "SAH4",
+      "userId": "user123",
+      "lastName": "Smith",
+      "referenceClient": "Williams",
+      "delivery": "Delivery5",
+      "email": "user789@example.com",
+      "facturable" : true,
+      "selected" : false
+    },
+    {
+      "id": "6",
+      "client": "Saham6",
+      "ste": "SAH4",
+      "userId": "user123",
+      "lastName": "Smith",
+      "referenceClient": "Williams",
+      "delivery": "Delivery6",
+      "email": "user789@example.com",
+      "facturable" : true,
+      "selected" : false
+    },
+    {
+      "id": "7",
+      "client": "Saham7",
+      "ste": "SAH7",
+      "userId": "user123",
+      "lastName": "Smith",
+      "referenceClient": "Williams",
+      "delivery": "Delivery7",
+      "email": "user789@example.com",
+      "facturable" : false,
+      "selected" : true
+    }
+  ]
+}
