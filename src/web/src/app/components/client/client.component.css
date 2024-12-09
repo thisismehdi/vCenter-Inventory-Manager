@@ -1,0 +1,57 @@
+#client-button{
+  Width: 90%;
+  Height: 125.22px;
+  Border: 0.2px solid #333;
+  border-radius: 4px; /* Optional: Adds rounded corners */
+  padding: 8px 16px; /* Optional: Adds padding inside the button */
+  font-size: 34px; /* Optional: Sets font size */
+  cursor: pointer; /* Optional: Changes cursor to pointer on hover */
+  margin-left: 10%;
+  margin-bottom: 6%;
+}
+
+
+.nom-client{
+  font-family: Roboto;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 39.84px;
+  text-align: center;
+  color:  #000000;
+
+}
+/*Resposive*/
+@media only screen and (max-width:1339px) {
+  #client-button{
+    Width: 200px;
+  }
+  .nom-client{
+    font-size: 29px;
+  }
+}
+
+@media only screen and (max-width:863px) {
+  #client-button{
+    Width: 150px;
+  }
+}
+
+.button-conrolle{
+  display: flex;
+  white-space: nowrap;
+  width:100%;
+}
+
+#button-inventaire{
+  width:100%;
+}
+.button-container {
+  display: flex; /* Use flexbox for the container */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+.button-wrapper {
+  flex: 0 0 calc(33.333% - 10px); /* Set width for each button wrapper (adjust as needed) */
+  margin-right: 10px; /* Adjust margin between button wrappers */
+  margin-bottom: 10px; /* Adjust margin between lines of buttons */
+}

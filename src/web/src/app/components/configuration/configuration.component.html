@@ -1,1 +1,8 @@
-<p>configuration works!</p>
+<div class="calendar-container">
+  <button class="btn btn-primary" (click)="toggleDatePicker()">
+    {{ selectedDate ? selectedDate : 'Select Date' }}
+  </button>
+  <div class="date-picker" *ngIf="showDatePicker">
+    <input type="date" [(ngModel)]="selectedDate" (change)="onDateChange($event)">
+  </div>
+</div>

@@ -1,1 +1,18 @@
-<p>client works!</p>
+<div class="row">
+  <div id="button-inventaire" class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6" >
+    <h2 class="inventaire">Inventaire</h2>
+
+    <!--div class="bg-secondary card-border" style="background:#DFECF4 !important;"></div-->
+    <div class="button-container">
+      <div *ngFor="let client of filteredClients; let i = index" class="button-wrapper">
+        <button id="client-button" class="card-body box-style" [routerLink]="['/role', client.id]">
+          <p class="nom-client">{{client.nom}}</p>
+        </button>
+        <!-- Add a line break after every third button -->
+        <br *ngIf="(i + 1) % 3 === 0 && i !== clientList.length - 1">
+      </div>
+    </div>
+
+  </div>
+</div>
+

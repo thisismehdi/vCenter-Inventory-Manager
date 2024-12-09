@@ -15,6 +15,7 @@ import { InformationDetaillesComponent } from './components/information-detaille
 import { InformationTotalComponent } from './components/information-total/information-total.component';
 import { LoginComponent } from './components/login/login.component';
 import { RoleComponent } from './components/role/role.component';
+import { FrenchDatepickerIntlComponent } from './components/french-datepicker-intl/french-datepicker-intl.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RoleComponent } from './components/role/role.component';
     InformationDetaillesComponent,
     InformationTotalComponent,
     LoginComponent,
-    RoleComponent
+    RoleComponent,
+    FrenchDatepickerIntlComponent
   ],
   imports: [
     BrowserModule,

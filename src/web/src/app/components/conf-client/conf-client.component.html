@@ -1,1 +1,255 @@
-<p>conf-client works!</p>
+<h2 class="inventaire">Configuration</h2>
+<button class="button-add" *ngIf="selectedTable === 'Référentiel client'" (click)="toggleForm()"><img alt="" style="margin-left: -15px;margin-top: 0.5%" src="assets/img/plus.png" width="25">
+  <p class="add-font" style="margin-left: 8%">Nouveau client</p>
+</button>
+
+<select id="dropdown" [(ngModel)]="selectedClient" (ngModelChange)="filterClient($event)" *ngIf="selectedTable === 'Référentiel client'">
+  <option *ngIf="selectedClient === 'Sélectionner un client'" [value]="'Sélectionner un client'" selected>Sélectionner un client</option>
+  <option *ngFor="let client of clients" [value]="client.nom">
+    {{ client.nom }}
+  </option>
+</select>
+<button class="filter-button" *ngIf="selectedTable === 'Référentiel client'" (click)="cancelFiltre()"><img alt="" src="assets/img/filtre.png" width="45">
+</button>
+<!---Vm Assignee-->
+<div class="button-cntr">
+  <select id="dropdown" [(ngModel)]="selectedClient" (ngModelChange)="filterClient1($event)" *ngIf="selectedTable === 'VM assignée'">
+    <option *ngIf="selectedClient === 'Sélectionner un client'" [value]="'Sélectionner un client'" selected>Sélectionner un client</option>
+    <option *ngFor="let client of clients" [value]="client.nom">
+      {{ client.nom }}
+    </option>
+  </select>
+  <!--button class="filter-button" *ngIf="selectedTable === 'VM assignée'" (click)="cancelFiltre()"><img alt="" src="assets/img/filtre.png" width="45">
+  </button-->
+  <select id="dropdown" [(ngModel)]="sortVm" (ngModelChange)="sortVmFun($event)" *ngIf="selectedTable === 'VM assignée'">
+    <option  selected>tri décroissant</option>
+    <option >tri croissant</option>
+  </select>
+  <!--button class="filter-button" *ngIf="selectedTable === 'VM assignée'" (click)="cancelSort()"><img alt="" src="assets/img/filtre.png" width="45">
+  </button-->
+
+  <mat-form-field *ngIf="selectedTable === 'VM assignée'" appearance="outline" class="hidden-input-field">
+    <mat-date-range-input [rangePicker]="pickerk" >
+      <input matStartDate [(ngModel)]="startDate">
+      <input matEndDate [(ngModel)]="endDate">
+    </mat-date-range-input>
+    <mat-date-range-picker #pickerk (closed)="onDateRangeSelected()" class="hidden-input-field">
+      <mat-date-range-picker-actions>
+        <button mat-button matDatepickerCancel (click)="clearDateRange()">Vider</button>
+        <button mat-button matDatepickerApply>Appliquer</button>
+      </mat-date-range-picker-actions>
+    </mat-date-range-picker>
+
+  </mat-form-field>
+
+  <button class="btn1 btn-primary1" (click)="pickerk.open()" *ngIf="selectedTable === 'VM assignée'">
+    <img src="assets/img/calander.png" width="33" style="margin-left: -10px;margin-top: 2px;">
+    <div class="periode-text">
+      {{ selectedDateRange ? selectedDateRange : 'Sélectionner une période' }}
+    </div>
+  </button>
+  <button class="filter-button" *ngIf="selectedTable === 'VM assignée'" (click)="cacelAll()"><img alt="" src="assets/img/filtre.png" width="45">
+  </button>
+</div>
+<!------------------------------------------>
+<div class="group-button" >
+  <button  class="btn tn-primary"
+           [ngClass]="{ 'bt-primary': selectedTable === 'VM non assignée' }"
+           (click)="onTableChange('VM non assignée')">
+    <p class="add-font">VM non assignée</p>
+  </button>
+
+  <button class="btn tn-primary"
+          [ngClass]="{ 'bt-primary': selectedTable === 'VM assignée' }"
+          (click)="onTableChange('VM assignée')">
+    <p class="add-font">VM assignée</p>
+  </button>
+
+  <button class="btn tn-primary"
+          [ngClass]="{ 'bt-primary': selectedTable === 'Référentiel client' }"
+          (click)="onTableChange('Référentiel client')">
+    <p class="add-font">Référentiel client</p>
+  </button>
+</div>
+
+<table class="table-body" *ngIf="selectedTable === 'VM non assignée'">
+  <thead>
+  <tr class="first-champ" >
+    <th>Sélectionner</th>
+    <th>VM</th>
+    <th>Client</th>
+    <th>Delivery</th>
+    <th>Facturable</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="data-table"*ngFor="let vm of paginatedVMs; let i = index">
+    <td >
+      <img  [src]="vm.selected?'assets/img/check.png':'assets/img/uncheck.png'" (click)="check(vm)" width="30">
+      <!--img *ngIf="!vm.selected" [src]="'assets/img/uncheck.png'"(click)="check(vm)" width="30"-->
+
+    </td>
+    <td>{{vm.nom}}</td>
+    <td>
+      <select class="selected-client" [(ngModel)]="vm.selectedClient" (ngModelChange)="onClientChange(vm)">
+        <option *ngIf="vm.selectedClient === 'Sélectionner un client'"  [value]="'Sélectionner un client'" >Sélectionner un client</option>
+        <option  *ngFor="let client of clients" [value]="client.nom" >
+          <div>{{ client.nom }}</div>
+        </option>
+      </select>
+    </td>
+    <td >
+      {{ vm.selectedClientdelivery }}
+      <!--div *ngIf=" vm.selectedClientdelivery!=''; else  emailNull">{{ vm.selectedClientdelivery }}</div>
+      <ng-template #emailNull><input type="text"  name="clientName" [(ngModel)]="emailDelivery"></ng-template-->
+    </td>
+    <td>
+      <a class="save"> <img [src]="vm.facturable ? 'assets/img/check.png' : 'assets/img/uncheck.png'" (click)="fact(vm)" width="30"></a>
+    </td>
+    <td>
+      <a class="save"><img  src="assets/img/save.png" (click)="affectation(vm)" width="34"></a>
+      <a class="delete"><img  src="assets/img/delete.png"  (click)="deleteVm(vm)" width="37" style="margin-left: 12%"></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="pagination-controls" *ngIf="selectedTable === 'VM non assignée'">
+  <button (click)="setPage(1)" [disabled]="currentPage === 1">1</button>
+  <button (click)="setPage(currentPage - 1)" [disabled]="currentPage === 1"><<</button>
+  <span>Page {{currentPage}} sur {{totalPages()}}</span>
+  <button (click)="setPage(currentPage + 1)" [disabled]="currentPage === totalPages()">>></button>
+  <button (click)="setPage(totalPages())" [disabled]="currentPage === totalPages()">{{totalPages()}}</button>
+</div>
+
+
+<table class="table-body" *ngIf="selectedTable === 'VM assignée'">
+  <thead>
+  <tr class="first-champ" >
+    <th>VM</th>
+    <th>Client</th>
+    <th>Date d'assignation</th>
+    <th>Ste</th>
+    <th>User ID</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Delivery</th>
+    <th>Facturable</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let row of filtreVmsAssi">
+  <tr class="data-table" *ngIf="row.client!=null">
+
+    <td>{{ row.nom }}</td>
+    <td>{{ row.client.nom }}</td>
+    <td class="big-td">{{ row.dateAffectation | date:'dd-MM-yyyy HH:mm:ss' }}</td>
+    <td>{{ row.client.ste }}</td>
+    <td class="big-td">{{ row.client.userID }}</td>
+    <td class="big-td">{{ row.client.lastName }}</td>
+    <td class="big-td">{{ row.client.personne.email }}</td>
+    <td>{{ row.client.personne.prenom }} {{ row.client.personne.nom }}</td>
+
+    <td >
+      <a class="save"><img  [src]="row.facturable ? 'assets/img/check.png' : 'assets/img/uncheck.png'" (click)="factorableVmAssi(row)" width="30"></a>
+    </td>
+    <td>
+      <a class="delete"><img (click)="deleteVmAssi(row)" src="assets/img/delete.png" width="37" style="margin-left: 12%"></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<table class="table-body" *ngIf="selectedTable === 'Référentiel client'">
+  <thead>
+  <tr class="first-champ" >
+    <th>Client</th>
+    <th>Ste</th>
+    <th>User ID</th>
+    <th>Last name</th>
+    <th>Delivery</th>
+    <th>Email</th>
+    <th>Notfication</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let row of getDataByTable()">
+  <tr class="data-table" *ngIf="!row.modifier; else goElse">
+
+    <td>{{ row.nom }}</td>
+    <td>{{ row.ste }}</td>
+    <td>{{ row.userID }}</td>
+    <td>{{ row.lastName }}</td>
+    <td>{{ row.personne.prenom }} {{row.personne.nom}}</td>
+    <td>{{ row.personne.email }}</td>
+    <td >
+      <img  [src]="row.notifier?'assets/img/check.png':'assets/img/uncheck.png'" width="30">Oui
+      <img  [src]="!row.notifier?'assets/img/check.png':'assets/img/uncheck.png'" width="30">Non
+    </td>
+    <td><a class="save" (click)="modifyClient(row)" ><img  src="assets/img/update.png" width="34"></a>
+      <a class="delete" (click)="deleteClient(row)"><img  src="assets/img/delete.png" width="35" style="margin-left: 12%"></a>
+    </td>
+  </tr>
+  <ng-template #goElse>
+    <tr class="data-table">
+      <td><input class="inputGroup" type="text"[(ngModel)]="row.nom"  name="clientName" ></td>
+      <td><input class="inputGroup" type="text"  [(ngModel)]="row.ste"  name="ste"></td>
+      <td class>{{ row.ste + '.' + row.ste +'_MAINTENANCE' }}</td>
+      <td>{{   row.ste + '_MAINTENANCE'}}</td>
+      <td>
+        <select class="selected-client" [(ngModel)]="row.personne.prenom" (ngModelChange)="onDeliveryChange(row)">
+          <option [value]="'delivery'" selected>delivery</option>
+          <option  *ngFor="let d of delivery" [value]="d.prenom" >
+            <div> {{ d.prenom }} {{d.nom}}</div>
+          </option>
+        </select>
+      </td>
+      <td>
+        <div *ngIf=" row.selectedDelivery!='' && selectedDelivery1!='null'; else  emailNull">{{ row.selectedDelivery}}</div>
+        <ng-template #emailNull><input type="text"  name="clientName" [(ngModel)]="emailDelivery"></ng-template>
+      </td>
+      <td>
+        <img  [src]="row.notifier?'assets/img/check.png':'assets/img/uncheck.png'" (click)="notificationClick(row)" width="30">Oui
+        <img  [src]="!row.notifier?'assets/img/check.png':'assets/img/uncheck.png'" (click)="notificationClick(row)" width="30">Non
+      </td>
+      <td>
+        <a class="save" (click)="saveModifyClient(row)"><img  src="assets/img/save.png" width="32"></a>
+        <a class="delete" (click)="deleteClient(row)"><img  src="assets/img/delete.png" width="35" style="margin-left: 12%"></a>
+      </td>
+    </tr>
+  </ng-template>
+  </tbody>
+  <tbody *ngIf="showForm">
+
+  <tr class="data-table">
+
+    <td><input type="text" [(ngModel)]="client.nom"  name="clientName"></td>
+    <td><input type="text"  [(ngModel)]="client.ste"  name="ste"></td>
+    <td>{{ client.ste ? client.ste + '.' + client.ste +'_MAINTENANCE' : '' }}</td>
+    <td>{{ client.ste ?   client.ste + '_MAINTENANCE' : '' }}</td>
+
+    <td>
+      <select class="selected-client" [(ngModel)]="selectedDelivery" (ngModelChange)="onDeliveryChangeAjout()">
+        <option [value]="'delivery'" selected>delivery</option>
+        <option  *ngFor="let d of delivery" [value]="d.prenom" >
+          <div> {{ d.prenom }} {{d.nom}}</div>
+        </option>
+      </select>
+    </td>
+    <td>
+      <div *ngIf=" selectedDelivery1!='' && selectedDelivery1!='null'; else  emailNull1">{{ selectedDelivery1}}</div>
+      <ng-template #emailNull1><input type="text"  name="clientName" [(ngModel)]="emailDelivery"></ng-template>
+    </td>
+
+    <td >
+      <img  [src]="notif?'assets/img/check.png':'assets/img/uncheck.png'" (click)="notificationClickSave()" width="30">Oui
+      <img  [src]="!notif?'assets/img/check.png':'assets/img/uncheck.png'" (click)="notificationClickSave()" width="30">Non
+    </td>
+    <td>
+      <a class="save"  (click)="saveClient()"><img  src="assets/img/save.png" width="30"></a>
+      <a class="delete" (click)="cancel()"><img  src="assets/img/cancel-image.png" width="31" style="margin-left: 12%"></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
