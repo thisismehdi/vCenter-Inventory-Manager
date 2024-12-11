@@ -1,1 +1,170 @@
-<p>historique-logs works!</p>
+<h2 class="inventaire">Historique des logs</h2>
+<div class="historique-logs">
+
+  <div class="gestion-client" *ngIf="selectedTable === 'Changements environnement client'">
+    <div class="input-button" class="input-group search-area d-lg-inline-flex " >
+
+      <div class="input-group-append">
+        <span class="input-group-text"><a href="javascript:void(0)"><img  src="assets/img/search.png" width="25" height="32"></a></span>
+      </div>
+
+      <input type="text" class="form-control" placeholder="Rechercher" [(ngModel)]="searchTerm2" (input)="filterSearch2()">
+    </div>
+
+    <div class="filter-cancel">
+      <select class="dropdown" [(ngModel)]="selectedClient" (change)="filterTableCientByClient($event)">
+        <option *ngIf="selectedClient === 'Sélectionner un client'" [value]="'Sélectionner un client'" selected>Sélectionner un client</option>
+        <option *ngFor="let client of clientNames" [value]="client">{{client}}</option>
+      </select>
+      <button class="filter-button" (click)="cancelFiltreClient()"><img alt="" src="assets/img/filtre.png" width="45" >
+      </button>
+    </div>
+
+    <mat-form-field appearance="outline" class="hidden-input-field">
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate [(ngModel)]="startDate">
+        <input matEndDate [(ngModel)]="endDate">
+      </mat-date-range-input>
+      <mat-date-range-picker #picker (closed)="onDateRangeSelected1()">
+        <mat-date-range-picker-actions>
+          <button mat-button matDatepickerCancel (click)="clearDateRange()">Vider</button>
+          <button mat-button matDatepickerApply>Appliquer</button>
+        </mat-date-range-picker-actions>
+      </mat-date-range-picker>
+    </mat-form-field>
+
+    <button class="btn1 btn-primary1" (click)="picker.open()">
+      <img src="assets/img/calander.png" width="33" style="margin-left: 4px">
+      <div class="periode-text">
+        {{ selectedDateRange ? selectedDateRange : 'Sélectionner une période' }}
+      </div>
+    </button>
+
+
+    <div class="exporter" (click)="exportexcel2()">
+      <img src="assets/img/export.png" width="35" style="margin-left: 23%">
+      <p class="exporter-text" >Exporter</p>
+    </div>
+  </div>
+
+  <div class="gestion-client" *ngIf="selectedTable === 'Changement dans application'">
+    <div class="input-button" class="input-group search-area d-lg-inline-flex " >
+      <div class="input-group-append">
+        <span class="input-group-text"><a href="javascript:void(0)"><img id="img-search" src="assets/img/search.png" width="25" height="32"></a></span>
+      </div>
+
+      <input type="text" class="form-control" placeholder="Rechercher" [(ngModel)]="searchTerm" (input)="filterSearch()">
+    </div>
+
+    <div class="filter-cancel">
+      <select class="dropdown" [(ngModel)]="selectedClient" (change)="filterTableCientByClient($event)">
+        <option *ngIf="selectedClient === 'Sélectionner un client'" [value]="'Sélectionner un client'" selected>Sélectionner un client</option>
+        <option *ngFor="let client of clientNames" [value]="client">{{client}}</option>
+      </select>
+      <button class="filter-button" (click)="cancelFiltreClient()"><img alt="" src="assets/img/filtre.png" width="45" >
+      </button>
+    </div>
+
+    <mat-form-field appearance="outline" class="hidden-input-field">
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate [(ngModel)]="startDate">
+        <input matEndDate [(ngModel)]="endDate">
+      </mat-date-range-input>
+      <mat-date-range-picker #picker (closed)="onDateRangeSelected()">
+        <mat-date-range-picker-actions>
+          <button mat-button matDatepickerCancel (click)="clearDateRange()">Vider</button>
+          <button mat-button matDatepickerApply>Appliquer</button>
+        </mat-date-range-picker-actions>
+      </mat-date-range-picker>
+    </mat-form-field>
+
+    <button class="btn1 btn-primary1" (click)="picker.open()">
+      <img src="assets/img/calander.png" width="33" style="margin-left: 4px">
+      <div class="periode-text">
+        {{ selectedDateRange ? selectedDateRange : 'Sélectionner une période' }}
+      </div>
+    </button>
+
+    <div class="exporter" (click)="exportexcel()">
+      <img src="assets/img/export.png" width="35" style="margin-left: 23%">
+      <p class="exporter-text" >Exporter</p>
+    </div>
+  </div>
+  <div class="group-button" >
+    <button  class="btn tn-primary"
+             [ngClass]="{ 'bt-primary': selectedTable === 'Changements environnement client' }"
+             (click)="onTableChange('Changements environnement client')">
+      <p class="add-font">Changements d'environnement client</p>
+    </button>
+
+    <button class="btn tn-primary"
+            [ngClass]="{ 'bt-primary': selectedTable === 'Changement dans application' }"
+            (click)="onTableChange('Changement dans application')">
+      <p class="add-font">Changement dans l'application</p>
+    </button>
+  </div>
+  <div class="table-wrapper">
+    <table class="table-body fixed-header-table" *ngIf="selectedTable === 'Changements environnement client'">
+      <tr class="first-champ">
+        <th class="nom-client">Date & heure</th>
+        <th class="nom-client">Action</th>
+        <th class="nom-client">Interface</th>
+        <th class="nom-client">Section</th>
+        <th class="nom-client">Client</th>
+        <th class="nom-client">VM</th>
+        <th class="type-changement">Ancienne donnée</th>
+        <th class="type-changement">Nouvelle donnée</th>
+        <th class="type-changement">Description</th>
+      </tr>
+      <tr class="data-table" *ngFor="let changement of filteredChangementsClient">
+        <td >{{changement.date | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+        <td >{{changement.typeChangement}}</td>
+        <td >{{changement.placeChangement}}</td>
+        <td >{{changement.section}}</td>
+        <td >{{changement.nomClient}}</td>
+        <td >{{changement.nomVm}}</td>
+        <td >{{changement.ancienneDonnee}}</td>
+        <td >{{changement.nouvelleDonnee}}</td>
+        <td >{{changement.description}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="table-wrapper">
+    <table class="table-body fixed-header-table" *ngIf="selectedTable === 'Changement dans application'">
+      <thead>
+      <tr class="first-champ">
+        <th class="nom-client">Date & heure</th>
+        <th class="nom-client">Action</th>
+        <th class="nom-client">Interface</th>
+        <th class="nom-client">Section</th>
+        <th class="nom-client">Client</th>
+        <th class="nom-client">VM</th>
+        <th class="type-changement">Modifier par</th>
+        <th class="type-changement">Type de changement</th>
+        <th class="type-changement">Ancienne donnée</th>
+        <th class="type-changement">Nouvelle donnée</th>
+        <th class="type-changement">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="data-table" *ngFor="let changement of filteredChangements">
+        <td>{{ changement.date | date:'dd-MM-yyyy HH:mm:ss' }}</td>
+        <td>{{ changement.action }}</td>
+        <td>{{changement.placeChangement}}</td>
+        <td>{{ changement.section }}</td>
+        <td>{{ changement.nomClient }}</td>
+        <td>{{ changement.nomVm }}</td>
+        <td>{{ changement.utilisateur }}</td>
+        <td>{{ changement.typeChangement }}</td>
+        <td>{{ changement.ancienneDonnee }}</td>
+        <td>{{ changement.nouvelleDonnee }}</td>
+        <td>{{ changement.description }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+

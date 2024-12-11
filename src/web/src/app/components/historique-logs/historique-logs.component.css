@@ -1,0 +1,338 @@
+.input-button{
+  box-shadow: none !important;
+  width: 28%;
+  height: 100%;
+}
+.inventaire{
+  width: unset;
+}
+.form-control {
+  border-top: 1px solid rgba(50, 96, 124, 1);
+  border-right: 1px solid rgba(50, 96, 124, 1);
+  border-bottom: 1px solid rgba(50, 96, 124, 1);
+  height:45px;
+  border-top-right-radius: 5px!important;
+  border-bottom-right-radius: 5px!important;
+}
+.input-group-text{
+  background: rgba(248, 248, 248, 1);
+  border-top: 1px solid rgba(50, 96, 124, 1);
+  border-left: 1px solid rgba(50, 96, 124, 1);
+  border-bottom: 1px solid rgba(50, 96, 124, 1);
+  border-top-left-radius: 5px!important;
+  border-bottom-left-radius: 5px!important;
+}
+.gestion-client{
+  width: 100%;
+  height: 20%;
+  margin-left: 0%;
+  display: flex;
+}
+.historique-logs{
+  width: 100%;
+  height: 50%;
+}
+.table-container {
+  overflow-x: auto;
+  overflow-y: auto; /* Ensures vertical scroll if needed */
+  max-height: 400px; /* You can adjust this value */
+  white-space: nowrap;
+}
+.dropdown {
+  padding: 10px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 5px;
+  height:45px;
+  cursor: pointer;
+  border: 1px solid rgba(50, 96, 124, 1);
+  background: rgba(248, 248, 248, 1);
+  margin-left: 13px;
+  margin-top: 2px;
+}
+
+.bt-primary{
+  background: rgba(92, 154, 192, 1);
+  border-style: solid;
+  border-color: rgba(255, 102, 0, 1);
+  border-width: 1px 1px 0px 1px;
+  width: 30%;
+  height: 57px !important;
+  box-shadow: 7px 4px 4px 0px rgba(0, 0, 0, 0.3),-4px -4px 4px 0px rgba(0, 0, 0, 0.35);
+  margin-top: -5px;
+  border-radius: 5px;
+}
+.tn-primary{
+  background: rgba(92, 154, 192, 1);
+  border-style: solid;
+  border-color: rgba(255, 102, 0, 1);
+  border-width: 1px 1px 0px 1px;
+  box-shadow: 7px 4px 4px 0px rgba(0, 0, 0, 0.3),-4px -4px 4px 0px rgba(0, 0, 0, 0.35);
+  height: 52px;
+  width: 25%;
+
+}
+
+.filter-button{
+  border-radius: 1rem;
+  height: 45px;
+  background: #FFFFFF;
+}
+.hidden-input-field {
+  position: center;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.tn-primary:active,
+.tn-primary:focus {
+  background: rgba(92, 154, 192, 1) !important;
+  border-style: solid;
+  border-color: rgba(255, 102, 0, 1);
+  border-width: 1px 1px 0px 1px;
+}
+.bn-primary:active,
+.bn-primary:focus {
+  background: rgba(92, 154, 192, 1) !important;
+  border-style: solid;
+  border-color: rgba(255, 102, 0, 1);
+  border-width: 1px 1px 0px 1px;
+}
+
+
+.group-button{
+  display: flex;
+  margin-top: 4%;
+  margin-bottom: -2px;
+}
+.dropdown:hover {
+  border-color: #999; /* Change border color on hover */
+}
+
+/* Customizing the appearance of dropdown arrow */
+.dropdown::-ms-expand {
+  display: none; /* Hide default arrow in IE10 and IE11 */
+}
+
+.periode-button{
+  display: flex;
+  width: 35%;
+  height:45px;
+  margin-left: 1%;
+  border: 1px solid rgba(50, 96, 124, 1);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 1);
+}
+.periode-text{
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+
+.exporter{
+  margin-left: 301px;
+}
+.exporter:hover {
+  cursor: pointer;
+}
+.form-control{
+  width: 20% !important;
+}
+th, td {
+  border:1px solid black;
+  position: center;
+  width: 10%;
+  height: 5%;
+}
+
+.nom-client{
+  width: 8%;
+}
+.type-changement{
+  width: 15%;
+}
+.table-body{
+  background: rgba(234, 243, 248, 1);
+  text-align: center;
+  width: 100%;
+  border-collapse: collapse;
+
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+.first-champ{
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32.81px;
+  text-align: center;
+  color: rgba(0, 0, 0, 1);
+}
+
+.pagination-controls {
+  text-align: center;
+  margin: 10px 0;
+  background: rgba(92, 154, 192, 1);
+  margin-top: 1px;
+}
+
+.pagination-controls button {
+  border: 1px solid #32607C;
+  background: rgba(50, 96, 124, 1);
+  color: white;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination-controls button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.data-table{
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28.13px;
+  text-align: center;
+  color: rgba(0, 0, 0, 1);
+}
+
+.table-body th, .table-body td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.calendar-container {
+  margin-left: 1%;
+  width: 20%;
+  background: rgba(248, 248, 248, 1);
+
+}
+
+.btn1 {
+  display: flex;
+  height:49px;
+  margin-left: 1%;
+  border: 1px solid rgba(50, 96, 124, 1);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 1);
+}
+search-area {
+  box-shadow: 0px!important;
+  border-radius: 0px!important;
+}
+.date-picker {
+  display: flex;
+  justify-content: center;
+}
+
+.input-group{
+  width:25%!important;
+  background: none;
+}
+
+.filter-cancel{
+  display : flex !important;
+  margin-left: 2%;
+  width : 325px;
+  height:51px;
+  background: rgba(234, 243, 248, 1);
+  border: 1px solid rgba(50, 96, 124, 1)
+}
+/* Responsive */
+
+@media only screen and (max-width:1401px) {
+  .form-control{
+    height: 50px;
+  }
+}
+@media only screen and (max-width:1331px) {
+  .periode-text{
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: 400;
+    text-align: center;
+    margin-left: 5%;
+    margin-top: 4%;
+  }
+  .periode-button{
+    width: 16%;
+  }
+}
+@media only screen and (max-width:869px) {
+  .periode-text{
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    margin-left: 5%;
+    margin-top: 4%;
+  }
+  .periode-button{
+    width: 18%;
+  }
+}
+.add-font{
+  font-size: 17px;
+  color:white;
+  margin-top: -12px;
+}
+
+
+.fixed-header-table {
+  max-height: 400px; /* Set the maximum height for the table */
+}
+
+.fixed-header-table thead {
+  position: sticky; /* Ensure header sticks to the top */
+  top: 0;
+  background-color: #f1f1f1; /* Background color for header */
+  z-index: 1; /* Ensure header is above other content */
+}
+
+.fixed-header-table th {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Border bottom for the header */
+}
+
+.fixed-header-table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd; /* Border bottom for table rows */
+}
+
+.first-champ th {
+  position: sticky; /* Ensure first row header sticks to the top */
+  top: 0;
+  background-color: #f1f1f1; /* Background color for header */
+  z-index: 2; /* Ensure header is above other content */
+  padding: 8px;
+  text-align: center; /* Adjust text alignment if needed */
+  border-bottom: 1px solid #ddd; /* Border bottom for the header */
+}
+
+.data-table td {
+  padding: 8px;
+  text-align: center; /* Adjust text alignment if needed */
+  border-bottom: 1px solid #ddd; /* Border bottom for table rows */
+}
+
+/* Optional: Style the table rows alternately */
+.data-table:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.table-wrapper {
+  max-height: 530px; /* Set the maximum height for the table */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
