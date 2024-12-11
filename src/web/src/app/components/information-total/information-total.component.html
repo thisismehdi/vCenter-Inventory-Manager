@@ -1,1 +1,74 @@
-<p>information-total works!</p>
+
+<h2 class="inventaire">Inventaire</h2>
+<div class="button-ctr">
+  <button class="btn3"><img alt="image" width="40" height="38.64" src="assets/img/extraire.png" style="margin-top:2%;margin-left:1%;">
+    <p class="export-text" (click)="exportexcel()">Expoter</p>
+  </button>
+</div>
+<div class="card card-bd">
+  <div class="bg-secondary card-border" style="background:#DFECF4 !important;"></div>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role">Entité:</h2>
+        <h3 class="entite">Saham</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role">STE:</h2>
+        <div ><h3 class="entite">SHM</h3></div>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role">Nombre VM:</h2>
+        <h3 class="entite">{{totalVm}}</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >vCPU:</h2>
+        <h3 class="entite">{{role.vcpu}}</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >Assigned memory (GB):</h2>
+        <h3 class="entite">{{role.assignedMemory}}</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >Memory consumed (GB):</h2>
+        <h3 class="entite">{{role.consumedMemory}}</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >Assigned Storage (GB):</h2>
+        <h3 class="entite">{{role.assignedStorage}}</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >Storage consumed (GB):</h2>
+        <h3 class="entite">{{role.storageConsumed}}</h3>
+      </div>
+    </div>
+  </button>
+</div>

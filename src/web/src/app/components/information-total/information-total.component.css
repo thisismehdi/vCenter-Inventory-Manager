@@ -1,0 +1,155 @@
+
+#button-cont{
+  display: grid;
+  flex-direction: row!important;
+  width: 80%;
+}
+.nom-role{
+  float: left;
+  font-family: Roboto;
+  font-size: 37px;
+  font-weight: 400;
+  line-height: 43.36px;
+  text-align: center;
+  margin-left: 6%;
+}
+.inventaire{
+  margin-bottom: -90px;
+}
+.next-img{
+  float: right;
+  margin-top: 10px;
+}
+.button-ctr{
+  display: flex;
+  margin-left: 66%;
+  margin-bottom: 1%;
+  margin-top:3%;
+}
+
+.image-container{
+  font-family: Roboto;
+  font-size: 25px;
+  line-height: 41.02px;
+  text-align: center;
+}
+.btn2{
+  width: 190px;
+  height: 53px;
+  margin-right: 20px;
+  border: 1px solid rgba(123, 157, 177, 1);
+  border-radius:4px;
+
+}
+
+.btn3{
+  width: 190px;
+  height: 53px;
+  background: #32607C;
+  display: flex;
+  border: 1px solid rgba(123, 157, 177, 1);
+  border-radius:4px;
+  margin-left: 200px;
+}
+.export-text{
+  font-family: Roboto;
+  font-size: 25px;
+  line-height:41.02px;
+  text-align: center;
+  color: #FFFCE4;
+  position: center;
+  margin-left: 10%;
+  margin-top: 6px;
+}
+.entite{
+  color:#5B5B5B;
+  font-family: Roboto;
+  font-size: 37px;
+  font-weight: 400;
+  line-height: 43.36px;
+  text-align: left;
+  margin-left: 50%;
+}
+.card{
+  box-shadow: none !important;
+  border: 0.1px solid black;
+  border-radius:0px !important;
+}
+/*Responsive*/
+@media only screen and (max-width:1502px) {
+  .button-ctr{
+    margin-left: 65%;
+  }
+}
+
+@media only screen and (max-width:1459px) {
+  .button-ctr{
+    margin-left: 62%;
+  }
+
+  .image-container{
+    font-size: 23px ;
+  }
+  .export-text{
+    font-size: 23px ;
+  }
+}
+@media only screen and (max-width:1315px) {
+  .button-ctr{
+    margin-left: 60%;
+  }
+
+  .image-container{
+    font-size: 21px ;
+  }
+  .export-text{
+    font-size: 21px ;
+  }
+}
+@media only screen and (max-width:1111px) {
+  .button-ctr{
+    margin-left: 58%;
+  }
+
+  .image-container{
+    font-size: 19px ;
+  }
+  .export-text{
+    font-size: 19px ;
+  }
+}
+@media only screen and (max-width:943px) {
+  .button-ctr{
+    margin-left: 56%;
+  }
+
+  .image-container{
+    font-size: 17px ;
+  }
+  .export-text{
+    font-size: 19px ;
+  }
+}
+@media only screen and (max-width:751px) {
+  .button-ctr{
+    margin-left: 54%;
+  }
+
+  .image-container{
+    font-size: 15px ;
+  }
+  .export-text{
+    font-size: 18px ;
+  }
+}
+@media only screen and (max-width:681px) {
+  .inventaire{
+    margin-bottom: 10px;
+  }
+  .button-ctr{
+    margin-left: 0%;
+  }
+  .btn2{
+    margin-right: 10px;
+  }
+}

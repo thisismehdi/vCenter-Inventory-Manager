@@ -1,1 +1,143 @@
-<p>information-detailles works!</p>
+
+<h2 class="inventaire">Inventaire</h2>
+<div class="button-ctr">
+  <div class="calendar-container">
+    <button class="btn1 btn-primary1" (click)="toggleDatePicker()">
+      <img src="assets/img/calander.png" width="30" height="32" style="margin-left: 5%;margin-top: 3%">
+      <p class="periode-text">{{ selectedDate ? selectedDate : "Ajourd'hui" }}</p>
+    </button>
+    <div class="date-picker" *ngIf="showDatePicker">
+      <input type="date" [(ngModel)]="selectedDate" (change)="onDateChange($event)">
+    </div>
+  </div>
+  <button class="btn3" (click)="exportexcel()"><img alt="image" width="40" height="38.64" src="assets/img/extraire.png" style="margin-top:2%;margin-left:1%;">
+    <p class="export-text" >Exporter</p>
+  </button>
+</div>
+
+<div class="card card-bd">
+  <div class="bg-secondary card-border" style="background:#DFECF4 !important;"></div>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >Rôle:</h2>
+        <h3 class="entite">-</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >Client:</h2>
+        <div *ngIf="roleFilter && roleFilter.client"><h3 class="entite">{{roleFilter.client.nom}}</h3></div>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >STE:</h2>
+        <div *ngIf="roleFilter && roleFilter.client"><h3 class="entite">{{roleFilter.client.ste}}</h3></div>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >User ID:</h2>
+        <div *ngIf="roleFilter && roleFilter.client"><h3 class="entite">{{roleFilter.client.userID}}</h3></div>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >Last name:</h2>
+        <div *ngIf="roleFilter && roleFilter.client"><h3 class="entite">{{roleFilter.client.lastName}}</h3></div>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >FQDN:</h2>
+        <h3 class="entite">{{roleFilter.fqdn}}</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >Statut:</h2>
+        <h3 class="entite">{{roleFilter.statut}}</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >Date de Démarrage:</h2>
+        <h3 class="entite">-</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >vCPU:</h2>
+        <h3 class="entite">{{roleFilter.vcpu}}</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" style="line-height: 33.36px;">Assigned memory (GB):</h2>
+        <h3 class="entite">{{roleFilter.assignedMemory}}</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >Memory consumed (GB):</h2>
+        <h3 class="entite">{{roleFilter.consumedMemory}}</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >Assigned Storage (GB):</h2>
+        <!--Bit(8 Byte) -->
+        <h3 class="entite">{{roleFilter.assignedStorage/8000000000}}</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >Storage consumed (GB):</h2>
+        <h3 class="entite">{{roleFilter.storageConsumed}}</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style">
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" >Operation System:</h2>
+        <h3 class="entite">{{roleFilter.operationSys}}</h3>
+      </div>
+    </div>
+  </button>
+  <button class="card-body box-style" >
+    <div class="media align-items-center">
+      <div class="media-body me-3">
+        <h2 class="nom-role" id="number-attribuit" >SQL Licence:</h2>
+        <h3 class="entite">{{roleFilter.sqlLicence}}</h3>
+      </div>
+    </div>
+  </button>
+</div>
+
+
