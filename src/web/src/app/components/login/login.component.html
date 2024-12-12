@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="login-page">
+  <div class="border-login">
+    <div class="ilem-logo">
+      <img class="brand-title" src="assets/img/white_logo.png"  alt="" />
+    </div>
+    <h2 class="inventaire-vc">Inventaire vCenter</h2>
+    <!--div *ngIf="isLoggedIn()">
+      <h3>You are logged in</h3>
+    </div>
+    <div *ngIf="!isLoggedIn()">
+      <h3>You are NOT logged in</h3>
+    </div-->
+
+    <div class="login-form">
+      <label style="margin-left: 2%">Nom d’utilisateur</label>
+      <input class="input-text" type="text" placeholder="Nom d’utilisateur" >
+      <label style="margin-left: 2%">Mot de passe</label>
+      <input class="input-text" type="password" placeholder="Mot de passe">
+
+      <button class="se-connecter" style="background: white !important;" (click)="login()" *ngIf="!isLoggedIn()"><img class="microsoft-image" src="assets/img/Microsoft_logo.svg.png"  alt="" />Se connecter avec microsoft</button>
+      <button class="se-connecter" (click)="logout()" *ngIf="isLoggedIn()">SIGN OUT</button>
+    </div>
+    <div>
+      <img class="login-image" src="assets/img/login_image.png" width="500px" alt="" />
+    </div>
+
+  </div>
+</div>
